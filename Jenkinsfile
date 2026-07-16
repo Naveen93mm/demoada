@@ -52,9 +52,9 @@ pipeline {
                     sh """
                     ssh -o StrictHostKeyChecking=no ec2-user@${DEPLOY_SERVER} '
                         sudo docker pull ${DOCKER_IMAGE}:${DOCKER_TAG}
-                        sudo docker stop jack || true
-                        sudo docker rm jack || true
-                        sudo docker run -d -p 80:80 --name novaloc93 ${DOCKER_IMAGE}:${DOCKER_TAG}
+                        sudo docker stop clock || true
+                        sudo docker rm clock|| true
+                        sudo docker run -d -p 80:90 --name clock ${DOCKER_IMAGE}:${DOCKER_TAG}
                     '
                     """
                 }
